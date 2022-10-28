@@ -25,8 +25,8 @@ public class UserDao {
                 user.getId(),user.getName(),user.toString());
     }
 
-    public void deleteAll() {
-        this.jdbcTemplate.update("delete from users");
+    public int deleteAll() {
+        return this.jdbcTemplate.update("delete from users");
     }
 
     public User findById(String id) {
