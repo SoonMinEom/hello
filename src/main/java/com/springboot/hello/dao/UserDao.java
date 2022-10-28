@@ -22,8 +22,8 @@ public class UserDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void add(User user) {
-        this.jdbcTemplate.update("insert into users(id, name, password) value (?,?,?)",
+    public int add(User user) {
+        return this.jdbcTemplate.update("insert into users(id, name, password) value (?,?,?)",
                 user.getId(),user.getName(),user.toString());
     }
 
