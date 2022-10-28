@@ -1,11 +1,14 @@
 package com.springboot.hello.controller;
 
 import com.springboot.hello.domain.dto.MemberDto;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
+
 //dispatcherServlet이 Mapping해줄 Controller를 등록
+@Slf4j
 @RestController
 @RequestMapping("/api/v1/get-api")
 public class GetController {
@@ -14,11 +17,13 @@ public class GetController {
     // hello를 get으로 지정
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String hello() {
+        log.info("hello로 요청이 들어왔습니다.");
         return "Hello World";
     }
 
     @GetMapping(value = "/name")
     public String getName() {
+        log.info("getName으로 요청이 들어왔습니다.");
         return "soonmin";
     }
 
@@ -26,6 +31,7 @@ public class GetController {
     // path parm = pathVariable ->주소를 통해 정보를 넘김
     // 주로, id 와 같이 꼭 입력되어야 하는 parm을 이것으로 설정하는 경우가 많음
     public String getNamVariable1(@PathVariable String variable) {
+        log.info("variable1으로 요청이 들어왔습니다.");
         return variable;
     }
 

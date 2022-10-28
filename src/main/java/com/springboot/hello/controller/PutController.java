@@ -10,26 +10,28 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/v1/put-api")
 public class PutController {
-//
-//    @RequestMapping(value = "/domain",method = RequestMethod.POST)
-//    public String postExample() {
-//        return "Hello Post API";
-//    }
-//
-//    @PostMapping("/member")
-//    public String postMember(@RequestBody Map<String, Object> postData) {
-//        StringBuilder sb = new StringBuilder();
-//        postData.entrySet().forEach(map->sb.append(map.getKey()+":"+map.getValue()+"\n"));
-//        return sb.toString();
-//    }
-//
-//    @PostMapping("/member2")
-//    public String postMember2(@RequestBody MemberDto memberDto) {
-//      return memberDto.toString();
-//    }
+
+    @RequestMapping(value="/member", method = RequestMethod.PUT)
+    public String putMember(@RequestBody Map<String, Object> putData) {
+        StringBuilder sb = new StringBuilder();
+        putData.entrySet().forEach(map->{
+            sb.append(map.getKey()+" : "+map.getValue()+"\n");
+        });
+        return sb.toString();
+    }
+
+    @PutMapping("/member2")
+    public String putMember2(@RequestBody MemberDto memberDto) {
+        return memberDto.toString();
+    }
 
     @PutMapping("/member3")
-    public ResponseEntity<MemberDto> putMember(@RequestBody MemberDto memberDto) {
+    public MemberDto putMember3(@RequestBody MemberDto memberDto) {
+        return memberDto;
+    }
+
+    @PutMapping("/member4")
+    public ResponseEntity<MemberDto> putMember4(@RequestBody MemberDto memberDto) {
         return ResponseEntity
                 .status(HttpStatus.ACCEPTED)
                 .body(memberDto);
