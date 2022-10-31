@@ -35,4 +35,9 @@ public class HospitalParser implements Parser<Hospital> {
 
         return hospital;
     }
+
+//    public String sqlFormat(Hospital hospital) {
+//        String sql = String.format("%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s",
+//                hospital.getId(),)
+//    }
 }
