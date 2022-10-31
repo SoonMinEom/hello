@@ -16,10 +16,10 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = ParserFactory.class)
-// 스프링부트로 테스트 할 경우. 위에 두 개 안 쓰고.. 아래 하나만..
-//@SpringBootTest
+//@ExtendWith(SpringExtension.class)
+//@ContextConfiguration(classes = ParserFactory.class)
+// 스프링부트로 테스트 할 경우에는 위에 두 개 안 쓰고.. 아래 하나만..(환경변수 설정 필수!!!)
+@SpringBootTest
 class HospitalParserTest {
 
     @Autowired
