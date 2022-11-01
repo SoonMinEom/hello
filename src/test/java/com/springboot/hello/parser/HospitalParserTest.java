@@ -33,14 +33,19 @@ class HospitalParserTest {
     String Line770 = "";
 
     @Test
-    @DisplayName("Hospital이 잘 insert되는지")
-    void add() {
+    @DisplayName("Hospital이 잘 insert되는지, select도 잘 되는지")
+    void addAndGet() {
         hospitalDao.deletAll();
         assertEquals(0,hospitalDao.getCount());
 
         HospitalParser hp = new HospitalParser();
         Hospital hospital = hp.parse(line1);
         hospitalDao.add(hospital);
+
+        Hospital selectedHospital = hospitalDao.findById(1);
+        assertEquals(1,selectedHospital.getId());
+        assertEquals("의원",selectedHospital.getOpenServiceName());
+        assertEquals("효치과의원",selectedHospital.getHospitalName());
 
         assertEquals(1, hospitalDao.getCount());
     }
