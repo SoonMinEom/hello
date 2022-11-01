@@ -40,5 +40,9 @@ public class HospitalDao {
         return this.jdbcTemplate.queryForObject(sql, Integer.class);
     }
 
+    public void deletAll() {
+        this.jdbcTemplate.update("DELETE FROM nation_wide_hospitalss;");
+    }
+
 
 }
