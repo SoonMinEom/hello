@@ -35,5 +35,10 @@ public class HospitalDao {
                 hospital.getTotalAreaSize());
     }
 
+    public int getCount() {
+        String sql = "SELECT count(id) From nation_wide_hospitalss;";
+        return this.jdbcTemplate.queryForObject(sql, Integer.class);
+    }
+
 
 }
